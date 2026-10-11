@@ -48,7 +48,7 @@ export function Catalog({ onSelect }: { onSelect: (entry: CatalogEntry) => void 
           <Search size={19} />
           <input
             aria-label="חיפוש לפי קוד או שם"
-            placeholder="חיפוש לפי קוד FEFCO או שם…"
+            placeholder="חיפוש לפי קוד או שם…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />

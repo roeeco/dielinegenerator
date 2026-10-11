@@ -2,7 +2,7 @@ import { effectiveCode, generators } from '../geometry/registry';
 import { generateValidated, validateGeometry } from '../geometry/validate';
 import { precision } from '../geometry/primitives';
 import type { DielineGeometry, Params, PathKind } from '../geometry/types';
-export const GENERATOR_VERSION = '0.4.0';
+export const GENERATOR_VERSION = '0.5.0';
 export const layers: Record<PathKind, { id: string; color: string }> = {
   cut: { id: 'CUT', color: '#ff0000' },
   crease: { id: 'CREASE', color: '#0000ff' },
@@ -26,6 +26,7 @@ export function exportSvg(id: string, params: Params, geometry?: DielineGeometry
     JSON.stringify({
       code: effectiveCode(id, params),
       family: id,
+      source: id.startsWith('SPD-') ? 'Structural Package Designs' : 'FEFCO 2022',
       params,
       generatorVersion: GENERATOR_VERSION,
       status: 'beta',
@@ -44,7 +45,7 @@ export function exportSvg(id: string, params: Params, geometry?: DielineGeometry
   return `<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" width="${precision(width)}mm" height="${precision(height)}mm" viewBox="0 0 ${precision(width)} ${precision(height)}">\n  <metadata>${metadata}</metadata>\n${groups}\n</svg>\n`;
 }
 export function svgFilename(id: string, p: Params): string {
-  const dimensions = ['L', 'W', 'H']
+  const dimensions = ['L', 'W', 'sideLength', 'H']
     .filter((k) => Number.isFinite(p[k]))
     .map((k) => p[k])
     .join('x');
@@ -53,7 +54,7 @@ export function svgFilename(id: string, p: Params): string {
       .filter((field) => field.group === 'special' && !['glue', 'N'].includes(field.key))
       .map((field) => `_${field.key === 'lidDepth' ? 'lid' : field.key}${p[field.key]}`)
       .join('') ?? '';
-  return `FEFCO_${effectiveCode(id, p)}_${dimensions}${p.t !== undefined ? `_t${p.t.toFixed(1)}` : ''}${special}.svg`;
+  return `${id.startsWith('SPD-') ? '' : 'FEFCO_'}${effectiveCode(id, p)}_${dimensions}${p.t !== undefined ? `_t${p.t.toFixed(1)}` : ''}${special}.svg`;
 }
 export function downloadSvg(id: string, p: Params) {
   const content = exportSvg(id, p),

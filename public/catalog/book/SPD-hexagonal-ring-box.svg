@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400mm" height="242.310199mm" viewBox="0 0 400 242.310199">
+  <metadata>{&quot;code&quot;:&quot;SPD-hexagonal-ring-box&quot;,&quot;family&quot;:&quot;SPD-hexagonal-ring-box&quot;,&quot;source&quot;:&quot;Structural Package Designs&quot;,&quot;params&quot;:{&quot;sideLength&quot;:60,&quot;H&quot;:30,&quot;lidDepth&quot;:10,&quot;glue&quot;:12,&quot;t&quot;:1,&quot;spacing&quot;:10},&quot;generatorVersion&quot;:&quot;0.5.0&quot;,&quot;status&quot;:&quot;beta&quot;,&quot;units&quot;:&quot;mm&quot;}</metadata>
+  <g id="CUT" stroke="#ff0000" fill="none" stroke-width="1">
+    <path d="M0 105.655099 L61 105.655099 L67.993587 97.768348 L40.826921 50.714301 L30.5 52.82755 L61 0 L64.333333 10 L118.666667 10 L122 0 L152.5 52.82755 L142.173079 50.714301 L115.006413 97.768348 L122 105.655099 L183 105.655099 L183 136.655099 L122 136.655099 L115.006413 144.541851 L142.173079 191.595898 L152.5 189.482649 L122 242.310199 L118.666667 232.310199 L64.333333 232.310199 L61 242.310199 L30.5 189.482649 L40.826921 191.595898 L67.993587 144.541851 L61 136.655099 L0 136.655099 Z" data-part="body" />
+    <path d="M193 10 L205 10 L205 0 L266 0 L266 10 L327 10 L327 0 L388 0 L388 10 L400 10 L400 41 L388 41 L388 51 L327 51 L327 41 L266 41 L266 51 L205 51 L205 41 L193 41 Z" data-part="belt" />
+  </g>
+  <g id="CREASE" stroke="#0000ff" fill="none" stroke-width="1">
+    <path d="M30.5 52.82755 L61 105.655099" data-part="body" />
+    <path d="M122 0 L61 0" data-part="body" />
+    <path d="M122 105.655099 L152.5 52.82755" data-part="body" />
+    <path d="M61 105.655099 L61 136.655099" data-part="body" />
+    <path d="M122 105.655099 L122 136.655099" data-part="body" />
+    <path d="M61 105.655099 L122 105.655099" data-part="body" />
+    <path d="M61 136.655099 L122 136.655099" data-part="body" />
+    <path d="M30.5 189.482649 L61 136.655099" data-part="body" />
+    <path d="M122 242.310199 L61 242.310199" data-part="body" />
+    <path d="M122 136.655099 L152.5 189.482649" data-part="body" />
+    <path d="M205 10 L205 41" data-part="belt" />
+    <path d="M266 10 L266 41" data-part="belt" />
+    <path d="M327 10 L327 41" data-part="belt" />
+    <path d="M388 10 L388 41" data-part="belt" />
+    <path d="M205 10 L266 10" data-part="belt" />
+    <path d="M205 41 L266 41" data-part="belt" />
+    <path d="M327 10 L388 10" data-part="belt" />
+    <path d="M327 41 L388 41" data-part="belt" />
+  </g>
+</svg>

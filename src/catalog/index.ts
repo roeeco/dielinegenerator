@@ -1,8 +1,10 @@
+import { bookSources } from '../geometry/nonrectangular';
 import data from './fefco-catalog.json';
 import { expandedSources } from '../geometry/expanded';
 import { generators } from '../geometry/registry';
 export type CatalogEntry = {
   code: string;
+  sourceDocument?: string;
   category: string;
   nameHe: string;
   thumbnail: string;
@@ -25,6 +27,7 @@ export const categories = [
   ['07', 'מודבקות מראש'],
   ['08', 'קמעונאות ומסחר מקוון'],
   ['09', 'מחיצות ורכיבי פנים'],
+  ['SP', 'עיצובים מהספר'],
 ] as const;
 export const sourceCatalog: CatalogEntry[] = (data as CatalogEntry[]).map((entry) => {
   const definition = generators[entry.code];
@@ -53,7 +56,22 @@ export const partitionFamily: CatalogEntry = {
   requiredParams: generators['0982'].fields.map((f) => f.key),
   specialVariables: ['N', 'rows'],
 };
-export const catalog = [...sourceCatalog, partitionFamily];
+export const bookCatalog: CatalogEntry[] = Object.entries(bookSources).map(([code, source]) => ({
+  code,
+  category: 'SP',
+  nameHe: source.nameHe,
+  sourceDocument: 'Structural Package Designs',
+  thumbnail: `catalog/book/${code}.svg`,
+  sourcePage: source.pages[0],
+  detailPage: source.pages[0],
+  referenceImage: null,
+  previewStatus: 'original-illustration',
+  status: 'beta',
+  generatorId: code,
+  requiredParams: generators[code].fields.map((f) => f.key),
+  specialVariables: generators[code].fields.filter((f) => f.group === 'special').map((f) => f.key),
+}));
+export const catalog = [...sourceCatalog, partitionFamily, ...bookCatalog];
 export const availableCount = catalog.filter((c) => !!c.generatorId).length;
 export const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 export function findEntry(code: string): CatalogEntry | undefined {

@@ -1,0 +1,37 @@
+[
+  {
+    "pages": [
+      305,
+      306
+    ],
+    "nameHe": "אריזת כרית — הדבקה או לשונית",
+    "canonicalId": "spd:pillow-pack",
+    "code": "SPD-pillow-pack",
+    "fields": [
+      "L",
+      "W",
+      "curveDepth",
+      "tuckDepth",
+      "tabWidth",
+      "closureVariant",
+      "glue",
+      "t"
+    ]
+  },
+  {
+    "pages": [
+      299
+    ],
+    "nameHe": "קופסת טבעת משושה",
+    "canonicalId": "spd:hexagonal-ring-box",
+    "code": "SPD-hexagonal-ring-box",
+    "fields": [
+      "sideLength",
+      "H",
+      "lidDepth",
+      "glue",
+      "t",
+      "spacing"
+    ]
+  }
+]

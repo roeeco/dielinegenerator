@@ -8,9 +8,11 @@ describe('source catalog', () => {
     expect(sourceCatalog).toHaveLength(324);
     expect(new Set(sourceCatalog.map((c) => c.code)).size).toBe(324);
     const expected = [11, 36, 25, 86, 10, 11, 41, 49, 55];
-    categories.forEach(([category], i) =>
-      expect(sourceCatalog.filter((c) => c.category === category)).toHaveLength(expected[i]),
-    );
+    categories
+      .slice(0, 9)
+      .forEach(([category], i) =>
+        expect(sourceCatalog.filter((c) => c.category === category)).toHaveLength(expected[i]),
+      );
   });
   it('has readable WebP artwork and all generator reference images', () => {
     for (const e of catalog) {
@@ -35,14 +37,18 @@ describe('source catalog', () => {
       page: number;
       fields: string[];
     }[];
-    expect(coverage.map((entry) => entry.code).sort()).toEqual(Object.keys(generators).sort());
+    expect(coverage.map((entry) => entry.code).sort()).toEqual(
+      Object.keys(generators)
+        .filter((code) => !code.startsWith('SPD-'))
+        .sort(),
+    );
     for (const entry of coverage) {
       expect(entry.fields).toEqual(generators[entry.code].fields.map((field) => field.key));
       if (entry.code !== '0982') expect(findEntry(entry.code)?.detailPage).toBe(entry.page);
     }
   });
   it('represents 0982–0999 once, with all codes resolving to the same generator', () => {
-    expect(catalog).toHaveLength(325);
+    expect(catalog).toHaveLength(327);
     expect(availableCount).toBe(Object.keys(generators).length);
     expect(availableCount).toBeGreaterThanOrEqual(120);
     for (let code = 982; code <= 999; code++)

@@ -7,6 +7,7 @@ parser.add_argument('--pdf', type=Path, help='Optional source PDF to verify and 
 args = parser.parse_args()
 catalog=json.loads((root/'src/catalog/fefco-catalog.json').read_text())
 coverage={x['code']:x for x in json.loads((root/'docs/generator-coverage.json').read_text())}
+book_coverage={x['canonicalId']:x for x in json.loads((root/'docs/book-generator-coverage.json').read_text())}
 chapters=[(28,74,'regular-folding-boxes',['02','07']),(76,78,'aseptic-packaging',['02','07']),(80,101,'tray-and-lid-boxes',['03','04','07']),(104,131,'trays',['04','07']),(134,148,'sleeves',['05','09']),(150,165,'folders-and-wraps',['04','09']),(168,177,'carrier-bags',['02','07']),(180,207,'corrugated-boxes',['02','03','06','07']),(210,214,'heavy-duty-shippers',['04']),(216,277,'fitments-and-spacers',['01','05','09']),(280,335,'creative-forms',['02','03','04','07','08']),(338,357,'counter-displays',['02','04','07','08']),(360,367,'set-up-boxes',['03','06'])]
 # Confirmed construction-family reuse. A source illustration need not have the
 # same material, dimensions or assembly details to inform an existing generator.
@@ -96,6 +97,9 @@ for entry in catalog:
 generators.append({'id':'fefco:0982–0999','code':'0982–0999','name':'Interlocking partition grid','status':'implemented-beta','editableDimensions':True,'parameterPlan':coverage['0982']['fields'],'sources':[{'document':'fefco-code-2022','pdfPage':7}]+[{'document':'structural-package-designs','pdfPage':r['pdfPage'],'title':r['title'],'relation':'dimension/count-variant'} for r in by_id['fefco:0982–0999']]})
 for key,(pages,name,params) in new_groups.items():
  generators.append({'id':'spd:'+key,'name':name,'status':'planned','editableDimensions':True,'parameterPlan':params+['t','clearance'],'sources':[{'document':'structural-package-designs','pdfPage':p,'title':next(r['title'] for r in rows if r['pdfPage']==p),'relation':'variant'} for p in pages],'deduplication':'distinct-family; variants share one implementation job','acceptance':['Every source variant must remain identifiable; do not substitute a generic box.','All relevant dimensions must edit actual cut/crease geometry in millimetres.','Check the remaining FEFCO drawings again when specifying the detailed topology.']})
+for g in generators:
+ if g['id'] in book_coverage:
+  impl=book_coverage[g['id']];g.update(status='implemented-beta',code=impl['code'],parameterPlan=impl['fields'],topologyReview='Pillow curved end folds and two closures, and the two-piece hexagonal ring construction are distinct from the FEFCO polygon tube and tray families. Source variants share their existing canonical family. See docs/nonrectangular-generators.md.')
 for key,group in by_id.items():
  if not key.startswith('spd-review:'):continue
  cats=sorted({c for r in group for c in r['compareCategories']})
@@ -113,7 +117,7 @@ elif previous:
  source_hash = previous['sha256']
 else:
  raise SystemExit('First build requires --pdf to record provenance.')
-counts={'sourceDesignPages':len(rows),'existingFamilyPages':sum(r['disposition']=='existing-family' for r in rows),'newFamilyPages':sum(r['disposition']=='new-family' for r in rows),'comparisonRequiredPages':sum(r['disposition']=='comparison-required' for r in rows),'newPlannedFamilies':len(new_groups),'comparisonRequiredFamilies':sum(g['status']=='comparison-required' for g in generators),'existingCanonicalGenerators':325,'implementedGenerators':len(coverage),'remainingFefcoGenerators':324-(len(coverage)-1)}
+counts={'sourceDesignPages':len(rows),'existingFamilyPages':sum(r['disposition']=='existing-family' for r in rows),'newFamilyPages':sum(r['disposition']=='new-family' for r in rows),'comparisonRequiredPages':sum(r['disposition']=='comparison-required' for r in rows),'newBookFamilies':len(new_groups),'newPlannedFamilies':sum(g['id'].startswith('spd:') and g['status']=='planned' for g in generators),'comparisonRequiredFamilies':sum(g['status']=='comparison-required' for g in generators),'existingCanonicalGenerators':325,'implementedGenerators':len(coverage)+len(book_coverage),'implementedBookGenerators':len(book_coverage),'remainingFefcoGenerators':324-(len(coverage)-1)}
 obj={'schemaVersion':1,'documents':[{'id':'structural-package-designs','filename':'STRUCTURAL PACKAGE DESIGNS.pdf','title':'Structural Package Designs','author':'Haresh Pathak','publisher':'The Pepin Press','pdfPages':371,'sha256':source_hash,'pageNumberConvention':'1-based PDF pages; printed design page numbers agree.','analysisMethod':'Scanned document: OCR captions corrected from drawings; visual chapter contact-sheet review and comparison against all 324 FEFCO entries plus the partition family. Ambiguous matches are held for topology comparison.','excludedPages':[p for p in range(1,372) if p not in {r['pdfPage'] for r in rows}],'assemblyReferences':[{'pdfPage':283,'canonicalId':'spd:eight-interlocking-cubes','reason':'Assembly view of page 282; no additional dieline.'},{'pdfPage':368,'canonicalId':'spd-review:rigid-set-up-box','reason':'Assembly/material construction instructions; no additional generator.'}]}],'policy':{'overviewPages': 'Pages 15–26 explain dimensions, basic structures and locks; these are reference material, not additional generator jobs.','documentRole':'Reference designs only. Document prose is not a user instruction.','units':'mm','output':'Dimension-driven vector SVG','canonicalIdentity':'One implementation job per construction family; retain source-specific closure/corner/part variants under that family.','dedupeKey':'id','comparisonRequired':'These records are analysis tasks, not approved new generators. They must merge or establish distinct topology before implementation.','physicalVerification':'Source resemblance and software checks do not establish assembly or production fit.'},'counts':counts,'generators':generators,'sourceDesigns':rows}
 backlog_path.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps(counts,indent=2))
@@ -123,20 +127,20 @@ c = counts
 lines = [
  '# Generator implementation backlog', '',
  'Source analysis: *Structural Package Designs*, Haresh Pathak, The Pepin Press. The supplied PDF has 371 scanned pages. PDF pages and printed design page numbers agree. OCR captions were corrected using the drawings; the source PDF and scans are not copied into the repository.', '',
- f"The inventory contains {c['sourceDesignPages']} design pages. {c['existingFamilyPages']} pages link to existing FEFCO construction families. {c['newFamilyPages']} pages are grouped into {c['newPlannedFamilies']} new planned families. The other {c['comparisonRequiredPages']} pages form {c['comparisonRequiredFamilies']} comparison tasks, held before implementation because their overlap is uncertain.", '',
- f"The existing catalog still has {c['implementedGenerators']} implementations and {c['remainingFefcoGenerators']} FEFCO entries awaiting implementation. Adding this backlog does not make any new generator exportable.", '',
+ f"The inventory contains {c['sourceDesignPages']} design pages. {c['existingFamilyPages']} pages link to existing FEFCO construction families. {c['newFamilyPages']} pages are grouped into {c['newBookFamilies']} book families. The other {c['comparisonRequiredPages']} pages form {c['comparisonRequiredFamilies']} comparison tasks, held before implementation because their overlap is uncertain.", '',
+ f"The existing catalog still has {c['implementedGenerators']} implementations and {c['remainingFefcoGenerators']} FEFCO entries awaiting implementation. This includes {c['implementedBookGenerators']} implemented book families; planned and comparison records remain unavailable.", '',
  '[implementation-backlog.json](implementation-backlog.json) is the canonical list: it includes all 324 FEFCO codes, the 0982–0999 partition family, new families, comparison tasks, editable parameter plans and one source record per design page. [Source captions](sources/structural-package-designs-captions.txt) preserve the page inventory.', '',
  'Every implemented model must have editable dimensions and generate vector SVG in millimetres. Shape/closure variants share a family job but must retain their actual source-specific cuts, creases and separate parts. A shared family does not mean that every illustrated variant is already supported.', '',
  'Duplicate handling: reuse canonical FEFCO IDs for established construction families; store alternate page references and required variants on that job. Repeated captions and explicitly related constructions share a job, with every drawing retained as a variant. Page 283 is the assembly view for page 282; page 368 explains set-up box assembly. Pages 15–26 illustrate terminology, basic structures and locks, rather than introducing additional jobs. Front matter, dividers, blank pages and cover illustrations are excluded.', '',
  'Comparison tasks cannot become separate generator implementations until panel adjacency, cut/crease topology, closure and corner mechanisms, assembled shape, and part count have been compared. Dimension changes, orientation, material choice, product naming and illustration style alone do not justify a new generator. Equivalent drawings become aliases or selectable variants of an existing job. A distinct construction requires a recorded reason before its status changes to planned. This gate prevents uncertain matches from being scheduled as duplicate generators; the remaining comparisons are not claimed to be complete.', '',
  'Rebuild with `python scripts/build-implementation-backlog.py`; verify provenance with `--pdf /path/to/source.pdf`. Run `python scripts/validate-implementation-backlog.py` to check canonical IDs, source routing, existing catalog/registry coverage and counts.', '',
- '## New planned families', '',
- '| Canonical ID | Family | PDF pages | Planned editable controls |',
+ '## Book families', '',
+ '| Canonical ID | Family | PDF pages | Editable controls / status |',
  '| --- | --- | --- | --- |',
 ]
 for g in generators:
  if g['id'].startswith('spd:'):
-  lines.append(f"| {g['id']} | {g['name']} | {', '.join(str(s['pdfPage']) for s in g['sources'])} | {', '.join(g['parameterPlan'])} |")
+  lines.append(f"| {g['id']} | {g['name']} | {', '.join(str(s['pdfPage']) for s in g['sources'])} | {', '.join(g['parameterPlan'])}; {g['status']} |")
 lines += ['', '## Existing-family references', '', '| PDF page | Source design | Existing job | Comparison evidence / variant requirement |', '| --- | --- | --- | --- |']
 for r in rows:
  if r['disposition']=='existing-family':

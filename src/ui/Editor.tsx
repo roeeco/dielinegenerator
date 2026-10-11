@@ -56,7 +56,10 @@ export function Editor({
           <div className="eyebrow">
             {category}
             <span>/</span>
-            <b dir="ltr">FEFCO {code}</b>
+            <b dir="ltr">
+              {entry.sourceDocument ? '' : 'FEFCO '}
+              {code}
+            </b>
           </div>
           <h1>{entry.nameHe}</h1>
         </div>
@@ -87,7 +90,15 @@ export function Editor({
               <div className="special-fields">
                 <h3>הגדרות הדגם</h3>
                 <DimensionFields
-                  fields={definition.fields.filter((f) => f.group === 'special')}
+                  fields={definition.fields.filter(
+                    (f) =>
+                      f.group === 'special' &&
+                      !(
+                        definition.id === 'SPD-pillow-pack' &&
+                        params.closureVariant === 0 &&
+                        ['tuckDepth', 'tabWidth'].includes(f.key)
+                      ),
+                  )}
                   params={params}
                   onChange={update}
                   issues={result?.issues ?? []}
@@ -223,10 +234,15 @@ export function Editor({
       )}
       <details className="source-reference">
         <summary>
-          מקור הדגם · FEFCO 2022 · עמוד {entry.detailPage ?? entry.sourcePage}
+          מקור הדגם · {entry.sourceDocument ?? 'FEFCO 2022'} · עמוד{' '}
+          {entry.detailPage ?? entry.sourcePage}
           <ChevronDown size={16} />
         </summary>
-        <p>איור המקור הוא חומר עיון, ואינו חלק מקובץ החיתוך. © FEFCO 2022. כל הזכויות שמורות.</p>
+        <p>
+          {entry.sourceDocument
+            ? 'עיצוב לפי Structural Package Designs, Haresh Pathak, The Pepin Press. איור התצוגה נוצר מהמחולל; אינו צילום מהספר.'
+            : 'איור המקור הוא חומר עיון, ואינו חלק מקובץ החיתוך. © FEFCO 2022. כל הזכויות שמורות.'}
+        </p>
         {entry.referenceImage && (
           <img src={assetUrl(entry.referenceImage)} alt={`שרטוט מקור של פריסת ${entry.code}`} />
         )}

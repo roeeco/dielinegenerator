@@ -1,3 +1,4 @@
+import { nonrectangularGenerators } from './nonrectangular';
 import { expandedGenerators } from './expanded';
 import { slotted } from './families/slotted';
 import { gluedTray, telescopic } from './families/tray';
@@ -53,6 +54,7 @@ const beta = 'יש לבצע חיתוך ניסיון ובדיקת הרכבה בח
 const material = 'L/W/H הן מידות פנימיות. קיזוזי הקיפול כאן הם הנחת התחלה, לא סבולות ייצור תקניות.';
 export const generators: Record<string, GeneratorDefinition> = {
   ...expandedGenerators,
+  ...nonrectangularGenerators,
   '0201': {
     id: '0201',
     fields: [L, W, H, glue, t, clearance],

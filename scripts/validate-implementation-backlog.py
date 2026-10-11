@@ -11,6 +11,7 @@ root = Path(__file__).resolve().parents[1]
 backlog = json.loads((root / 'docs/implementation-backlog.json').read_text())
 catalog = json.loads((root / 'src/catalog/fefco-catalog.json').read_text())
 coverage = json.loads((root / 'docs/generator-coverage.json').read_text())
+book_coverage = json.loads((root / 'docs/book-generator-coverage.json').read_text())
 generators = backlog['generators']
 source_rows = backlog['sourceDesigns']
 ids = [g['id'] for g in generators]
@@ -20,7 +21,7 @@ expected_fefco = {'fefco:' + e['code'] for e in catalog} | {'fefco:0982–0999'}
 actual_fefco = {key for key in ids if key.startswith('fefco:')}
 assert actual_fefco == expected_fefco, 'Missing or duplicated existing catalog family'
 implemented = {('fefco:0982–0999' if e['code'] == '0982' else 'fefco:' + e['code']) for e in coverage}
-assert {g['id'] for g in generators if g['status'] == 'implemented-beta'} == implemented
+assert {g['id'] for g in generators if g['status'] == 'implemented-beta'} == implemented | {e['canonicalId'] for e in book_coverage}
 assert all(g['editableDimensions'] is True and g['parameterPlan'] for g in generators)
 assert all(g['status'] in {'planned', 'implemented-beta', 'comparison-required'} for g in generators)
 
@@ -42,7 +43,7 @@ for r in source_rows:
     elif r['disposition'] == 'existing-family':
         assert r['canonicalId'] in expected_fefco and r['evidence']
     else:
-        assert r['disposition'] == 'new-family' and g['status'] == 'planned'
+        assert r['disposition'] == 'new-family' and g['status'] in {'planned', 'implemented-beta'}
 
 source = backlog['documents'][0]
 assert len(source['sha256']) == 64
@@ -58,9 +59,10 @@ assert counts['sourceDesignPages'] == len(source_rows)
 assert counts['existingFamilyPages'] == sum(r['disposition'] == 'existing-family' for r in source_rows)
 assert counts['newFamilyPages'] == sum(r['disposition'] == 'new-family' for r in source_rows)
 assert counts['comparisonRequiredPages'] == sum(r['disposition'] == 'comparison-required' for r in source_rows)
-assert counts['newPlannedFamilies'] == sum(g['id'].startswith('spd:') for g in generators)
+assert counts['newPlannedFamilies'] == sum(g['id'].startswith('spd:') and g['status'] == 'planned' for g in generators)
+assert counts['newBookFamilies'] == sum(g['id'].startswith('spd:') for g in generators)
 assert counts['comparisonRequiredFamilies'] == sum(g['status'] == 'comparison-required' for g in generators)
-assert counts['implementedGenerators'] == len(coverage)
+assert counts['implementedGenerators'] == len(coverage) + len(book_coverage)
 assert counts['remainingFefcoGenerators'] == len(expected_fefco) - len(implemented)
 assert counts['existingCanonicalGenerators'] == len(expected_fefco)
 print(f"Validated {len(ids)} unique canonical records and {len(source_rows)} singly-routed design pages; {counts['comparisonRequiredFamilies']} comparison tasks remain gated.")

@@ -1,3 +1,4 @@
+import { nonrectangularGenerators, nonrectangularSources } from './nonrectangular';
 import { nextGenerators, nextSources } from './next';
 import { continuationGenerators, continuationSources } from './continuation';
 import type { GeneratorDefinition, ParameterField, Params, ValidationIssue } from './types';
@@ -1240,3 +1241,7 @@ Object.assign(expandedSources, nextSources);
 
 Object.assign(expandedGenerators, continuationGenerators);
 Object.assign(expandedSources, continuationSources);
+
+for (const code of Object.keys(nonrectangularSources))
+  expandedGenerators[code] = nonrectangularGenerators[code];
+Object.assign(expandedSources, nonrectangularSources);

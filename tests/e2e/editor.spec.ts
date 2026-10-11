@@ -8,7 +8,7 @@ test('Hebrew catalog has all images, search, category filters and available mode
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
-  await expect(page.locator('.model-card')).toHaveCount(325);
+  await expect(page.locator('.model-card')).toHaveCount(327);
   const search = page.getByRole('textbox', { name: 'חיפוש לפי קוד או שם' });
   await search.fill('0436.1');
   await expect(page.locator('.model-card')).toHaveCount(1);
@@ -43,7 +43,7 @@ test('Hebrew catalog has all images, search, category filters and available mode
           ).length,
       ),
     )
-    .toBe(325);
+    .toBe(327);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
     true,
   );
@@ -131,4 +131,24 @@ test('sheet totals and grid counts have model-specific editable constraints', as
   await expect(page.getByRole('button', { name: 'הורדת SVG' })).toBeDisabled();
   await page.goto('/#/model/0965');
   await expect(page.getByText('חיתוך חלקי', { exact: true })).toBeVisible();
+});
+
+test('book pillow closure exposes relevant controls and exports a distinct tuck dieline', async ({
+  page,
+}) => {
+  await page.goto('/#/model/SPD-pillow-pack');
+  await expect(page.getByLabel('רוחב לשונית סגירה')).toHaveCount(0);
+  await page.getByLabel('סגירה: 0 הדבקה, 1 לשונית').fill('1');
+  await expect(page.getByLabel('רוחב לשונית סגירה')).toBeVisible();
+  await page.getByLabel('רוחב לשונית סגירה').fill('35');
+  await page.getByLabel('עומק קשת').fill('20');
+  await expect(page.getByRole('button', { name: 'הורדת SVG' })).toBeEnabled();
+  const pending = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'הורדת SVG' }).click();
+  const download = await pending;
+  expect(download.suggestedFilename()).toMatch(/^SPD-pillow-pack_/);
+  const svg = await readFile((await download.path())!, 'utf8');
+  expect(svg).toContain('Structural Package Designs');
+  expect(svg).toContain('&quot;closureVariant&quot;:1');
+  expect(svg).toContain('&quot;tabWidth&quot;:35');
 });

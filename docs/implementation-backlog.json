@@ -45,11 +45,13 @@
     "existingFamilyPages": 17,
     "newFamilyPages": 48,
     "comparisonRequiredPages": 254,
-    "newPlannedFamilies": 27,
+    "newBookFamilies": 27,
+    "newPlannedFamilies": 25,
     "comparisonRequiredFamilies": 198,
     "existingCanonicalGenerators": 325,
-    "implementedGenerators": 187,
-    "remainingFefcoGenerators": 138
+    "implementedGenerators": 191,
+    "implementedBookGenerators": 2,
+    "remainingFefcoGenerators": 136
   },
   "generators": [
     {
@@ -2290,11 +2292,11 @@
       "id": "fefco:0459",
       "code": "0459",
       "name": "FEFCO 0459",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 44
+          "pdfPage": 66
         },
         {
           "document": "structural-package-designs",
@@ -2304,11 +2306,7 @@
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "corner", "t"]
     },
     {
       "id": "fefco:0459.1",
@@ -4289,19 +4287,15 @@
       "id": "fefco:0858",
       "code": "0858",
       "name": "FEFCO 0858",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 116
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "H", "v", "fit", "glue", "t", "spacing"]
     },
     {
       "id": "fefco:0859",
@@ -5711,9 +5705,9 @@
     {
       "id": "spd:hexagonal-ring-box",
       "name": "Hexagonal ring box",
-      "status": "planned",
+      "status": "implemented-beta",
       "editableDimensions": true,
-      "parameterPlan": ["sideLength", "H", "lidDepth", "fit", "t", "clearance"],
+      "parameterPlan": ["sideLength", "H", "lidDepth", "glue", "t", "spacing"],
       "sources": [
         {
           "document": "structural-package-designs",
@@ -5727,7 +5721,9 @@
         "Every source variant must remain identifiable; do not substitute a generic box.",
         "All relevant dimensions must edit actual cut/crease geometry in millimetres.",
         "Check the remaining FEFCO drawings again when specifying the detailed topology."
-      ]
+      ],
+      "code": "SPD-hexagonal-ring-box",
+      "topologyReview": "Pillow curved end folds and two closures, and the two-piece hexagonal ring construction are distinct from the FEFCO polygon tube and tray families. Source variants share their existing canonical family. See docs/nonrectangular-generators.md."
     },
     {
       "id": "spd:hexagonal-snap-carton",
@@ -5753,17 +5749,17 @@
     {
       "id": "spd:pillow-pack",
       "name": "Pillow pack",
-      "status": "planned",
+      "status": "implemented-beta",
       "editableDimensions": true,
       "parameterPlan": [
         "L",
         "W",
-        "H",
         "curveDepth",
         "tuckDepth",
+        "tabWidth",
         "closureVariant",
-        "t",
-        "clearance"
+        "glue",
+        "t"
       ],
       "sources": [
         {
@@ -5784,7 +5780,9 @@
         "Every source variant must remain identifiable; do not substitute a generic box.",
         "All relevant dimensions must edit actual cut/crease geometry in millimetres.",
         "Check the remaining FEFCO drawings again when specifying the detailed topology."
-      ]
+      ],
+      "code": "SPD-pillow-pack",
+      "topologyReview": "Pillow curved end folds and two closures, and the two-piece hexagonal ring construction are distinct from the FEFCO polygon tube and tray families. Source variants share their existing canonical family. See docs/nonrectangular-generators.md."
     },
     {
       "id": "spd:wide-mouth-curved-box",
