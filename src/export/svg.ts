@@ -2,7 +2,7 @@ import { effectiveCode, generators } from '../geometry/registry';
 import { generateValidated, validateGeometry } from '../geometry/validate';
 import { precision } from '../geometry/primitives';
 import type { DielineGeometry, Params, PathKind } from '../geometry/types';
-export const GENERATOR_VERSION = '0.2.0';
+export const GENERATOR_VERSION = '0.3.0';
 export const layers: Record<PathKind, { id: string; color: string }> = {
   cut: { id: 'CUT', color: '#ff0000' },
   crease: { id: 'CREASE', color: '#0000ff' },

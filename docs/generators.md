@@ -40,15 +40,23 @@ The source diagrams are schematic. **None of these tests establishes physical fo
 
 ## Expansion coverage
 
-There are now 120 generator definitions, including the 0982–0999 family. The initial specifications above still apply. [generator-coverage.json](generator-coverage.json) records every implemented code, PDF page, exposed parameter and construction note. The catalog binds entries to the actual registry, so unsupported entries remain reference-only. 205 source entries are still unimplemented, mainly locking trays, glued constructions and retail packaging; this expansion does not complete all remaining generators.
+There are now 165 generator definitions, including the 0982–0999 family. The initial specifications above still apply. [generator-coverage.json](generator-coverage.json) records every implemented code, PDF page, exposed parameter and construction note. The catalog binds entries to the actual registry, so unsupported entries remain reference-only. 160 source entries are still unimplemented, mainly locking trays, glued constructions and retail packaging; this expansion does not complete all remaining generators.
 
 - 01: 11/11 codes. L/W are developed sheet dimensions except 0130, where L is one accordion panel. Early panel widths are independent; the final panel is the positive remaining width. 0100 exports a flat length cut from a roll.
-- 02: 21/36 codes. Flap depth, full or partial closures, notch/tongue outlines and tuck lips vary by code. 0226 has diagonal folds and continuous flaps rather than separated slots. Lock depth and tab width are explicit, with fit guards.
+- 02: 25/36 codes. Flap depth, full or partial closures, notch/tongue outlines and tuck lips vary by code. 0226 has diagonal folds and continuous flaps rather than separated slots. Lock depth and tab width are explicit, with fit guards.
 - 03: 13/25 codes. Cuts, inward/outward diagonal ear folds and uncut gussets remain distinct. Multiple sleeves and end covers are packed separately.
-- 04: 10/86 codes. Wrappers use their own panel sequences and side extensions; two-part wrappers retain independent nested components.
+- 04: 20/86 codes. Wrappers use their own panel sequences and side extensions; two-part wrappers retain independent nested components.
 - 05: 10/10 codes. Sleeve axes, nesting allowances, closing strap tabs and part counts follow the source constructions. 0507/0510 use similar flat components with a different assembly orientation.
+- 06: 11/11 codes. Rigid constructions keep a separate wrap and two separate end panels, except 0621 which uses two matching half-shells. End-panel flanges and wrap directions vary by model. Corner gussets in chamfered end panels include explicit diagonal folds as an engineering folding assumption. 0615 double returns are limited to prevent overlapping folds.
+- 07: 20/41 codes. Three automatic-bottom families have independent cut profiles and pre-glue fold placement. 0714 pairs a body with a nested, inverted lid. 0718 has double end walls; 0747/0748/0761 retain distinct diagonal wrapper folds. Pre-gluing and physical assembly remain unverified.
 - 09: 54/55 individual codes plus the count family. The stair display 0960 remains reference-only. Slots are complementary and material-dependent. 0934 places edge slots at a separate margin; 0935 has both v-height and H-height panels. 0939 computes developed cell windows and exposes cell count; assembled length is cells×W/2.
 
 For profiles with unlabelled source cross sections, leg, return and brace distances are editable construction variables; they are not automatic assembled width/height dimensions. Right-angle support diagonals use √2×H. Rounded holes use closed polygon paths with maximum chord error 0.01 mm. 0965/0966 share a developed five-panel pad; their physical cut face/assembly differ. Angle profiles 0971/0972 and 0973/0974 share flat panel sequences but differ in return orientation.
 
 Model-specific validators run before any preview or export. Every exposed expansion parameter is tested for a real construction change. The suite also checks three size ranges, contour intersections, duplicate/zero cut segments, finite bounds, part separation, independent SVG/XML parsing and real desktop/mobile downloads. These checks establish software behavior, not physical manufacturability.
+
+## Latest construction controls
+
+The automatic-bottom models expose bottom bevel, notch/slot width, notch depth where used and tuck lip where used. Their placement follows the specific source family; they do not share a generic rectangular base. These are editable beta dimensions, and no automatic glue application, cut-depth setting or physical manufacturing certification is implied.
+
+0454/0455 have rolled returns on opposite axes; 0456 has returns on both axes. The extra crease pitch is t. Quarter-span corner-ear limits prevent the doubled ears from colliding. 0458 is an unjoined four-wall cross: tape/stitching must provide its corner joints.

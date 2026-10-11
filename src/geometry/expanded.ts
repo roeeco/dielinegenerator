@@ -1,3 +1,4 @@
+import { nextGenerators, nextSources } from './next';
 import type { GeneratorDefinition, ParameterField, Params, ValidationIssue } from './types';
 import { variableGrid } from './families/grid';
 import { carton } from './families/carton';
@@ -1232,3 +1233,6 @@ add(
     ...(2 * p.v >= p.L ? [error('v', 'שפות הפינה חייבות להיות קטנות מחצי L.')] : []),
   ],
 );
+
+Object.assign(expandedGenerators, nextGenerators);
+Object.assign(expandedSources, nextSources);
