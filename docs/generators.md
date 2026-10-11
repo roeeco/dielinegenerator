@@ -2,6 +2,8 @@
 
 Source: user-supplied FEFCO Code, 12th edition (2022), 145 PDF pages. Page numbers below are PDF page numbers. The engine is authored in this project; drawings are reference evidence, not geometry inputs at runtime.
 
+The additional _Structural Package Designs_ PDF has a separate [canonical implementation backlog](implementation-backlog.md), including page-level provenance, existing-family mappings, new families, editable parameter plans and comparisons required to prevent duplicate implementations. Its planned models are not part of the implemented coverage below.
+
 All dimensions are millimetres. `L`, `W`, `H` are internal dimensions when the model represents a box. No global `L >= W` restriction is imposed. Only relevant dimensions are displayed for flat inserts.
 
 | Model     | Source                | Construction                                                                                                                                      | Parameters                                    |

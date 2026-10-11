@@ -1,0 +1,321 @@
+28|Reverse Tuck
+29|Straight Tuck
+30|Straight Tuck with Slit Lock
+31|Full Overlap Seal Ends
+32|Economy Seal Ends
+33|Economy Seal Ends
+34|Partial Overlap Tuck Lock Flaps
+35|Tuck with Anchor Lock
+36|Partial Overlap Seal Ends with Dispenser Tab Lock
+37|Full Overlap with Edge Lock
+38|Tuck and Tongue
+39|Tuck and Tongue
+40|Tuck and Tongue with Gusset Dust Flap
+41|Tuck and Tongue with Mailer Lock
+42|Straight Tuck with Inside Bottom Platform
+43|Full Overlap Seal End with Vanburen Ears at Bottom
+44|Seal End with Tab Lock and Zipper
+45|Overlap Seal Ends with Perforated Spout
+46|Reverse Tuck with Locking Dust Flaps
+47|Straight Tuck with Hanging Panel
+48|Reverse Tuck with Header Card or Fifth Panel
+49|Straight Tuck with Fifth Panel
+50|Top Closure Gift Lock
+51|Fancy Top with Auto Lock Bottom
+52|Altering Closure Top with Auto Lock Bottom
+53|Square Dome Top
+54|Tuck with Auto Lock Bottom
+55|Tuck with Auto Lock Bottom
+56|Tuck with Auto Lock Bottom
+57|Tuck with Auto Lock Bottom
+58|Ear Hook Double Lock Bottom
+59|Ear Hook Double Lock Bottom
+60|Reinforced Snap Lock Bottom
+61|Snap Lock Bottom
+62|Double Snap Lock Top with Bellow Flap, Snap Lock Bottom
+63|Flip Top Dispenser Box
+64|Butter Carton with Tear Away Tabs
+65|Reverse Tuck with Tapered Top
+66|Faceted Top
+67|Faceted Front with Gusset Flap
+68|Bellow Dust Flap, Tuck Lock, Auto Lock Bottom
+69|Straight Tuck Dust Flap with Roller Support and Perforated Top
+70|Seal End with Perforated Top (Tissue Dispenser)
+71|Seal End with Perforated Top and Front Panel
+72|Tuck and Seal Flaps
+73|Side Seal End with Tear Away Tuck
+74|Tuck Top and Lock Bottom with Self Partition
+76|Milk Carton Style Container with Slit/Loop Closure
+77|Aseptic Package
+78|Tetrahedron for Aseptic Packaging of Liquid
+80|Two Piece Full Telescopic Tray
+81|Two Piece Full Telescopic Friction Lock Tray
+82|Full Telescopic Tray with Ear Hook Lock Corners
+83|Two Piece Full Telescopic Tray and Lid with Seal Ends
+84|Self Locking Six Sides Tray and Partial Telescopic Cover
+85|One Piece Tray/Lid with Glued Corners
+86|One Piece Collapsible Tray/Lid with Dust Flap
+87|One Piece Collapsible Tray/Lid with Dust Flap
+88|One Piece Collapsible Tray/Lid
+89|One Piece Collapsible Tray/Lid
+90|Self Corner Triangle with Tab Lock
+91|Triangular Self Locking Pegboard Hanger
+92|Triangular Tray with Glued Side Walls
+93|Triangular Folding Carton with Tuck Lid
+94|Self-Locking Tray/Lid with Built-in Supports
+95|Self Locking Tray/Lid with Bellow Corners
+96|Self Locking Variation with Tapered Ends and Hollow Side Walls
+97|Tapered Ends and Hollow Side Walls with Hook Locks
+98|Self Locking Tray/Lid with Zip Tear Strip
+99|Self Locking Tray/Lid with Tear-away Side Seals
+100|Seal End Style Tray with Perforated Top
+101|Tapered Tray with Handle
+104|Side Seal Tray
+105|Side Seal Tray with Folding Side Wall
+106|Side Seal Tray with Folding End Wall
+107|Double End Wall Self Locking Tray
+108|Double End Wall Tab Locking Tray
+109|Glued Double Side Wall Tray
+110|Partial Double Wall Tray with Glued Flaps
+111|Outside T-Lock Tray
+112|Foot Lock Double Wall Tray
+113|Self Locking Double End Walls and Glued Double Side Walls
+114|Self Locking Double Walls
+115|Glued Double Side Walls and Double Bottom
+116|Self Locking Notch Lock Double Walls
+117|Self Locking Hollow Walls
+118|Self Locking Hollow Walls
+119|Self Locking Hollow Double Side Walls and Tapered End Walls
+120|Self Locking Hollow Double End Walls and Tapered Side Walls
+121|Gusseted Self Locking Deep Tray
+122|Self Locking Tray with Thick Double End Wall
+123|Glued or Heat-Sealed Tapered Tray with Fringe
+124|Tapered Tray with Glued Corners
+125|Tray with Raised End Panels and Sealed Corners
+126|Double Lock Deep Tray
+127|Notch Lock Tray
+128|Open Ended Collapsible Tray with Two Sealed Corners
+129|Hexagonal Tray
+130|Octagonal Tray
+131|Octagonal Tray with Curved Sides
+134|Simple Tube Sleeve
+135|Sleeve with Built-in Cushion for Fragile Products
+136|Tube Sleeve with Recessed Product Retainers
+137|Tapered Sleeve with Glued Bottom
+138|Edge-Locked Sleeve
+139|Edge-Locked Sleeve
+140|Tapered Top Sleeve with Fitting Tray
+141|Tube Sleeve and Tray
+142|One Side Open Sleeve (for Books or Cassettes)
+143|Two Piece Dispenser Sleeve/Tray
+144|Two Piece Dispenser Sleeve/Tray
+145|Container with Closed Bottom
+146|Ear Hook Lock Back Panel with Hanging Loop
+147|Sleeve for Cigarette Cartons
+148|Open Sleeve for Cylindrical Products
+150|Simple Folder
+151|Simple Folder
+152|One Piece Folder
+153|Two Section Folder
+154|One Piece Wrap with Tab Lock
+155|One Piece Wrap
+156|Side Seal Wrap with Tuck and Bellow
+157|Heavy Duty Folder with Tab Lock and Expandable Sides
+158|Sleeve with Glued Corners and Snap Lock Lid
+159|Simple Folder with Window
+160|Wrap-around with Interlocking Flaps
+161|Wrap-around with Rounded Top and Zipper Bottom
+162|Soap Bar Wrapper
+163|Simple Folder with Hooks for String Closure
+164|Wrap-around with Side Opening
+165|Wrap-around into Faceted Ends
+168|Bag with Auto Lock Bottom, Gusseted Sides and Snap Lock Closure
+169|Pouch with Auto Lock Bottom, Gusseted Sides and Snap Lock Closure
+170|Gusseted Bag with Auto Lock Bottom and Lock-in Cover Flaps
+171|Bag with Bottom Lock, Side Gussets and Hook Lock
+172|Bag with Reverse Tuck Locking Sides and Gusseted Tuck-in Closure
+173|Bag with Semi Lock Bottom
+174|Flat Bottom Grocery Bag with Gusseted Sides
+175|Gusseted Grocery Bag
+176|Bag with Glued Gusseted Sides, Handle and Closure Tab
+177|Standing Pouch with Hexagonal Bottom
+180|Universal Slotted Container
+181|Full Overlap Slotted Container
+182|Slotted Container
+183|Full Overlap Slotted Container
+184|Partial Overlap Slotted Container
+185|Partial Overlap Slotted Container
+186|One Piece Box with Built-in 12-Cell Partition
+187|3-Bliss Box
+188|4-Bliss Box
+189|Recessed End Box
+190|Half Slotted Box with Stapled Cover
+191|Double Cover Box
+192|Half Slotted Box with Partial Telescopic Cover
+193|Half Slotted Box with Full Telescopic Cover
+194|Heavy Duty Stapled Box with Cover
+195|Telescopic Heavy Duty Stapled Box
+196|Three-Pack Box with Lock Bottom
+197|Twelve-Pack Sleeve with Can and Heel Openings
+198|Bottom Glued Six-Pack with Neck and Heel Openings
+199|Twelve-Pack Can Carrier with Perforated Tear-Open Strip
+200|End Loading Tube with Reinforced Handle
+201|Open Ended Carrier
+202|Four-Pack Bottle Carrier
+203|Four-Pack Bottle Carrier
+204|Six-Pack Bottle Carrier with Glued Bottom
+205|Bottom Glued Box with Carrying Holes
+206|Interlocking Double Cover Box
+207|Box with Tapered Front and Handle
+210|Corrugated Book Shipper with Recessed End Panel
+211|Corrugated Book Shipper with Recessed Self Locking Closures
+212|Book Shipper with Zipper and Built-in Pads
+213|Audio Tape Shipper with Die-Cut Opening
+214|One Piece Folder
+216|Four-Cell Slotted Partition
+217|Twelve-Cell Slotted Partition
+218|One Piece Four-Cell Partition
+219|One Piece Six-Cell Partition
+220|16-Cell Extension Partition
+221|Single Cell Extension Partition
+222|Single Cell Support Partition
+223|Scored and Slotted Compartment Filler
+224|Twelve-Cell with High Divider
+225|C Partition
+226|D Partition
+227|I Beam Partition
+228|H Beam Partition with Wings
+229|H Beam Partition with Feet
+230|Z Partition
+231|Double Z Partition
+232|Triple Z Partition
+233|Modified T Partition
+234|Linear H Partition
+235|Folded Four-Cell Partition
+236|Folded Five-Cell Partition
+237|Open Liner
+238|Open Liner
+239|Open Compartment Liner
+240|Open Compartment Liner
+241|Joined Liner
+242|Open Compartment Liner
+243|Star-Shaped Liner
+244|Spacer
+245|Cushion Pad
+246|Cushion Pad
+247|Cushion Pad
+248|Cushion Pad
+249|Cushion Pad
+250|Cushion Pad
+251|Cushion Pad
+252|Cushion Pad
+253|Cushion Pad
+254|Cushion Pad
+255|Cushion Pad
+256|Cushion Pad
+257|Accordion Brace Pad
+258|Clearance Pad
+259|Corner Protection
+260|Scored Sheets
+261|Scored Sheet
+262|Brace Pad
+263|Corner Brace Pad
+264|Slotted Corner Protector
+265|Slotted Corner Protector
+266|Slotted Corner Protector
+267|Liner with Folded Sides
+268|Die-Cut Pad and Tray
+269|Die-Cut Anchor Pad
+270|Die-Cut Anchor Pad
+271|Double Lined Slide Box
+272|Triple Slide Box
+273|Wrap-around Blank
+274|Double Slide Box
+275|Partition with Handle
+276|Spacer/Handle for Shrink Wrap Packing
+277|Spacer/Handle for Shrink Wrap Packing
+280|Tapered Facet on One Side
+281|Trapezoid Package with Reverse Tucks
+282|Eight Cubes Interlocking at the Indicated Dust Flaps
+283|Eight Cubes Interlocking — Assembly View
+284|Quadruple Window Display Box
+285|Quadruple Window Display Box
+286|Slide Down Ring to Open
+287|Slide Down Ring to Open
+288|Slide Down to Open
+289|Triangle with Tuck Closures and Tearaway Zipper
+290|Triangular Variation
+291|Triangular Variation
+292|Triangular Variation
+293|Triangular Variation
+294|Triangular Box with Handle
+295|Bag with Hook Lock Bottom and Tab Lock Top
+296|Semi Lock Bottom and Tapered Top with Handle
+297|Box with Tapered Front
+298|Bag with Tapered Front and Handle
+299|Hexagonal Ring Box
+300|Hexagonal Sleeve with Auto Lock Bottom
+301|Hexagon with Snap Lock
+302|Hexagonal Carton with Push-in Closure and Auto Lock Bottom
+303|Hexagonal Tapered Box with Push-in Top and Bottom
+304|Tapered Hexagonal Container
+305|Pillow Pack
+306|Pillow Pack with Tuck
+307|Wide Mouth Box
+308|Straight and Curved Creasing
+309|Reverse Tuck Curved Carton
+310|Straight Tuck Carton with Curved Sides
+311|Double Curved Carton
+312|Triple Tapered Box
+313|Curved Corner
+314|Round Top Flap with Straight Tuck Bottom
+315|Roller Box
+316|Pentagonal Box
+317|Diamond Shape Tray
+318|Cuckoo Nest Package
+319|Curved Corner
+320|House Shape Package
+321|House Shape Package
+322|Car Shape Box
+323|Church Shape Box
+324|Two Storey Bungalow
+325|Tower Maker
+326|House Shape Box
+327|Cuckoo Clock
+328|Hut Shape Box
+329|Pagoda Box
+330|Star Shape Box
+331|Star Box
+332|Pyramid Box
+333|Basket with Lid
+334|Round Basket with Lid
+335|Octagonal Tray
+338|Cosmetics Display
+339|One Piece Open View Display Box
+340|Reverse Tuck with Die-Cut Window
+341|Auto Lock Bottom with Gravity-fed Dispenser
+342|Straight Tuck with Back Drop Panel
+343|Open Window Display Box
+344|Display Box with Window
+345|Double Cover Box
+346|Two Compartment Display Box
+347|Display Pack with Hanging Panel
+348|Counter Display with Double Walls
+349|Counter Display with Steps and Dividers
+350|Hook Lock and Walker Lock Combination Display
+351|Folding Counter Display with Bottom Lock Slots
+352|Counter Display with Built-in Easel
+353|Display Box with Double Side Walls
+354|Double Wing Easel Display
+355|Two Piece Brochure Display
+356|Two Piece Basket and Back Panel Counter Display
+357|Corrugated Floor Display
+360|Plain Hinged Lid Box
+361|Tray with Partial Telescopic Lid
+362|Box with Extending Bottom Panel
+363|Box with Extending Bottom Panel and Lid
+364|Flip Top Box
+365|Tapered Tray and Lid with Glued Corners
+366|Hinged Box with Raised Platform
+367|Telescopic Box with Extended Bottom Panel
+368|Set-up Box Construction — Assembly View
