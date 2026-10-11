@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { generators } from '../../src/geometry/registry';
 import { readFile } from 'node:fs/promises';
 test('Hebrew catalog has all images, search, category filters and available models', async ({
   page,
@@ -16,9 +17,11 @@ test('Hebrew catalog has all images, search, category filters and available mode
   await expect(page.getByRole('button', { name: 'הורדת SVG' })).toHaveCount(0);
   await page.getByRole('button', { name: 'בחירת דגם אחר', exact: true }).click();
   await page.getByRole('checkbox', { name: /דגמים עם מחולל/ }).check();
-  await expect(page.locator('.model-card')).toHaveCount(10);
+  await expect(page.locator('.model-card')).toHaveCount(Object.keys(generators).length);
   await page.getByRole('button', { name: /מחיצות ורכיבי פנים/ }).click();
-  await expect(page.locator('.model-card')).toHaveCount(4);
+  await expect(page.locator('.model-card')).toHaveCount(
+    Object.keys(generators).filter((id) => id.startsWith('09')).length,
+  );
   await page.getByRole('button', { name: 'כל הדגמים', exact: true }).click();
   await search.fill('does not exist');
   await expect(page.getByText('לא נמצאו דגמים')).toBeVisible();
@@ -76,30 +79,28 @@ test('dimension edits update the SVG immediately, invalid edits block export, do
     true,
   );
 });
-test('all beta models render and export, including lid and panel-count family', async ({
-  page,
-}) => {
-  for (const code of [
-    '0201',
-    '0204',
-    '0300',
-    '0401',
-    '0453',
-    '0501',
-    '0901',
-    '0902',
-    '0910',
-    '0982',
-  ]) {
-    await page.goto(`/#/model/${code}`);
-    await expect(page.locator('.dieline-canvas')).toBeVisible();
-    await expect(page.getByRole('button', { name: 'הורדת SVG' })).toBeEnabled();
-    const downloadPromise = page.waitForEvent('download');
-    await page.getByRole('button', { name: 'הורדת SVG' }).click();
-    const download = await downloadPromise;
-    expect(await download.failure()).toBeNull();
-  }
-});
+for (const category of [...new Set(Object.keys(generators).map((code) => code.slice(0, 2)))]) {
+  test(`category ${category}: every beta model renders and downloads its SVG`, async ({ page }) => {
+    test.setTimeout(60000);
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    for (const code of Object.keys(generators).filter((code) => code.startsWith(category))) {
+      await test.step(code, async () => {
+        await page.goto(`/#/model/${code}`);
+        await expect(page.locator('.dieline-canvas')).toBeVisible();
+        await expect(page.getByRole('button', { name: 'הורדת SVG' })).toBeEnabled();
+        const downloadPromise = page.waitForEvent('download', { timeout: 10000 });
+        await page.getByRole('button', { name: 'הורדת SVG' }).click();
+        const download = await downloadPromise;
+        expect(await download.failure()).toBeNull();
+        const svg = await readFile((await download.path())!, 'utf8');
+        expect(svg).toContain('id="CUT"');
+        expect(svg).toContain(`"code":"${code}"`.replaceAll('"', '&quot;'));
+        expect(errors).toEqual([]);
+      });
+    }
+  });
+}
 test('partition family supports the code range and model-specific fields', async ({ page }) => {
   await page.goto('/#/model/0999');
   await expect(page.getByLabel('מספר לוחות כולל')).toHaveValue('19');
@@ -113,4 +114,21 @@ test('partition family supports the code range and model-specific fields', async
   await page.goto('/#/model/0901');
   await expect(page.getByLabel('גובה', { exact: true })).toHaveCount(0);
   await expect(page.getByText('הגדרות חומר והתאמה', { exact: true })).toHaveCount(0);
+});
+test('sheet totals and grid counts have model-specific editable constraints', async ({ page }) => {
+  await page.goto('/#/model/0112');
+  await page.getByLabel('רוחב לוח 1').fill('120');
+  await expect(page.getByRole('button', { name: 'הורדת SVG' })).toBeDisabled();
+  await page.getByLabel('רוחב לוח 1').fill('30');
+  await expect(page.getByRole('button', { name: 'הורדת SVG' })).toBeEnabled();
+  await page.goto('/#/model/0935');
+  const rows = page.getByLabel('לוחות לאורך');
+  await expect(rows).toHaveAttribute('max', '12');
+  await rows.fill('3');
+  await page.getByLabel('לוחות רוחב בגובה מלא').fill('2');
+  await expect(page.getByRole('button', { name: 'הורדת SVG' })).toBeEnabled();
+  await page.getByLabel('לוחות רוחב בגובה מלא').fill('4');
+  await expect(page.getByRole('button', { name: 'הורדת SVG' })).toBeDisabled();
+  await page.goto('/#/model/0965');
+  await expect(page.getByText('חיתוך חלקי', { exact: true })).toBeVisible();
 });

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Maximize, Minus, Plus, Move } from 'lucide-react';
 import { layers } from '../export/svg';
-import type { Bounds, DielineGeometry } from '../geometry/types';
+import type { Bounds, DielineGeometry, PathKind } from '../geometry/types';
 type View = Bounds;
 function fitted(g: DielineGeometry): View {
   const pad = Math.max(g.boundsMm.width, g.boundsMm.height) * 0.075;
@@ -83,14 +83,27 @@ export function DielinePreview({ geometry }: { geometry: DielineGeometry }) {
       </svg>
       <div className="preview-bottom">
         <div className="line-legend">
-          <span>
-            <i className="cut-line" />
-            חיתוך
-          </span>
-          <span>
-            <i className="crease-line" />
-            קיפול / סימון
-          </span>
+          {(Object.keys(layers) as PathKind[])
+            .filter((kind) => geometry.paths.some((path) => path.kind === kind))
+            .map((kind) => (
+              <span key={kind}>
+                <i
+                  className={
+                    kind === 'crease' ? 'crease-line' : kind === 'cut' ? 'cut-line' : undefined
+                  }
+                  style={{ borderColor: layers[kind].color }}
+                />
+                {
+                  {
+                    cut: 'חיתוך',
+                    crease: 'קיפול / סימון',
+                    partial: 'חיתוך חלקי',
+                    perforation: 'ניקוב',
+                    tear: 'קו קריעה',
+                  }[kind]
+                }
+              </span>
+            ))}
         </div>
         <div className="zoom-controls" dir="ltr">
           <button aria-label="הקטנת תצוגה" onClick={() => zoom(1.25)}>

@@ -35,7 +35,7 @@ export function DimensionFields({
                 dir="ltr"
                 step={field.step}
                 min={field.min}
-                max={field.key === 'rows' ? params.N - 1 : field.max}
+                max={field.key === 'rows' && Number.isFinite(params.N) ? params.N - 1 : field.max}
                 value={Number.isFinite(params[field.key]) ? params[field.key] : ''}
                 onChange={(e) =>
                   onChange(field.key, e.target.value === '' ? NaN : e.target.valueAsNumber)

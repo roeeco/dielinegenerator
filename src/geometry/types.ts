@@ -33,4 +33,5 @@ export type GeneratorDefinition = {
   fields: ParameterField[];
   notes: string[];
   generate: (params: Params) => DielineGeometry;
+  validate?: (params: Params) => ValidationIssue[];
 };

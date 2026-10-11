@@ -1,3 +1,4 @@
+import { expandedGenerators } from './expanded';
 import { slotted } from './families/slotted';
 import { gluedTray, telescopic } from './families/tray';
 import { horizontalInsert, sleeve, verticalInsert, wrap0401, wrapInsert } from './families/wrap';
@@ -51,6 +52,7 @@ const spacing = field('spacing', 'רווח בין חלקים', 10, 2, 100, 'mate
 const beta = 'יש לבצע חיתוך ניסיון ובדיקת הרכבה בחומר שנבחר. הדגם טרם אומת לייצור.';
 const material = 'L/W/H הן מידות פנימיות. קיזוזי הקיפול כאן הם הנחת התחלה, לא סבולות ייצור תקניות.';
 export const generators: Record<string, GeneratorDefinition> = {
+  ...expandedGenerators,
   '0201': {
     id: '0201',
     fields: [L, W, H, glue, t, clearance],

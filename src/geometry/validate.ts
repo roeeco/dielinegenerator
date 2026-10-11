@@ -35,6 +35,7 @@ export function validateParams(id: string, p: Params): ValidationIssue[] {
     else if (Math.min(p.L / (p.N - p.rows + 1), p.W / (p.rows + 1)) <= 2 * (p.t + p.clearance))
       issue('N', 'התאים קטנים מדי לרוחב החריצים. הקטינו את מספר הלוחות או הגדילו את המידות.');
   }
+  if (def.validate) errors.push(...def.validate(p));
   return errors;
 }
 export const segmentKey = (a: Point, b: Point) =>

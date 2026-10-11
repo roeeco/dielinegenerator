@@ -2,7 +2,7 @@ import { effectiveCode, generators } from '../geometry/registry';
 import { generateValidated, validateGeometry } from '../geometry/validate';
 import { precision } from '../geometry/primitives';
 import type { DielineGeometry, Params, PathKind } from '../geometry/types';
-export const GENERATOR_VERSION = '0.1.0';
+export const GENERATOR_VERSION = '0.2.0';
 export const layers: Record<PathKind, { id: string; color: string }> = {
   cut: { id: 'CUT', color: '#ff0000' },
   crease: { id: 'CREASE', color: '#0000ff' },
@@ -48,7 +48,11 @@ export function svgFilename(id: string, p: Params): string {
     .filter((k) => Number.isFinite(p[k]))
     .map((k) => p[k])
     .join('x');
-  const special = id === '0300' ? `_lid${p.lidDepth}` : id === '0982' ? `_rows${p.rows}` : '';
+  const special =
+    generators[id]?.fields
+      .filter((field) => field.group === 'special' && !['glue', 'N'].includes(field.key))
+      .map((field) => `_${field.key === 'lidDepth' ? 'lid' : field.key}${p[field.key]}`)
+      .join('') ?? '';
   return `FEFCO_${effectiveCode(id, p)}_${dimensions}${p.t !== undefined ? `_t${p.t.toFixed(1)}` : ''}${special}.svg`;
 }
 export function downloadSvg(id: string, p: Params) {

@@ -1,4 +1,4 @@
-# Initial generator specifications
+# Generator specifications
 
 Source: user-supplied FEFCO Code, 12th edition (2022), 145 PDF pages. Page numbers below are PDF page numbers. The engine is authored in this project; drawings are reference evidence, not geometry inputs at runtime.
 
@@ -30,10 +30,25 @@ These are **beta construction assumptions**, not FEFCO-certified tolerance formu
 - The partition variant uses `rows` panels of length L and `N-rows` panels of length W. It places slots at equal cell pitches and makes opposite-side half-height openings, with slot width `t+clearance`. The fields count **panels**, not cells. Each direction needs at least one panel. All panels are laid side by side with `spacing` between bounding boxes.
 - 0901 and 0902 are literal flat rectangles, with no invented thickness, height, or fold inputs. A 100×100 mm 0901 export is suitable as the dimensional calibration sample.
 - Glue and tape are assembly steps, not generated engraving or production decorations. 0401's side joining extensions are a supported manufacturer's joining choice (source p.5), not a locking mechanism.
-- No automatic kerf offset, partial-cut simulation, perforation, tear lines, locking tabs, or CFQ 0436.x geometry is claimed. The semantic path type and export layer mapping reserve those distinct kinds for future implemented models.
+- No automatic kerf offset, physical partial-cut simulation, perforation, tear lines, or CFQ 0436.x geometry is claimed. Expanded locking models include editable tabs and receiving notches. Laminated pads export partial cuts on a separate PARTIAL_CUT layer; tool depth and cutting side remain machine settings.
 
 ## Verification boundary
 
 Source drawings for all nine individual generators were inspected during implementation. Their distinct panel sequences, flap proportions, corner-slot orientation, and part count informed the implementation. Default geometry snapshots, three dimensional scales, finite values, boundary containment, simple contours, unique cut segments, part separation, independent XML/path parsing, and browser export are tested.
 
 The source diagrams are schematic. **None of these tests establishes physical fold fit, adhesive strength, laser compatibility, board grain direction, or FEFCO manufacturing certification.** Do not promote any model to `verified` until the physical records in `production-validation.md` are completed. Reference-only codes never fall back to generic trays or unrelated generators.
+
+## Expansion coverage
+
+There are now 120 generator definitions, including the 0982–0999 family. The initial specifications above still apply. [generator-coverage.json](generator-coverage.json) records every implemented code, PDF page, exposed parameter and construction note. The catalog binds entries to the actual registry, so unsupported entries remain reference-only. 205 source entries are still unimplemented, mainly locking trays, glued constructions and retail packaging; this expansion does not complete all remaining generators.
+
+- 01: 11/11 codes. L/W are developed sheet dimensions except 0130, where L is one accordion panel. Early panel widths are independent; the final panel is the positive remaining width. 0100 exports a flat length cut from a roll.
+- 02: 21/36 codes. Flap depth, full or partial closures, notch/tongue outlines and tuck lips vary by code. 0226 has diagonal folds and continuous flaps rather than separated slots. Lock depth and tab width are explicit, with fit guards.
+- 03: 13/25 codes. Cuts, inward/outward diagonal ear folds and uncut gussets remain distinct. Multiple sleeves and end covers are packed separately.
+- 04: 10/86 codes. Wrappers use their own panel sequences and side extensions; two-part wrappers retain independent nested components.
+- 05: 10/10 codes. Sleeve axes, nesting allowances, closing strap tabs and part counts follow the source constructions. 0507/0510 use similar flat components with a different assembly orientation.
+- 09: 54/55 individual codes plus the count family. The stair display 0960 remains reference-only. Slots are complementary and material-dependent. 0934 places edge slots at a separate margin; 0935 has both v-height and H-height panels. 0939 computes developed cell windows and exposes cell count; assembled length is cells×W/2.
+
+For profiles with unlabelled source cross sections, leg, return and brace distances are editable construction variables; they are not automatic assembled width/height dimensions. Right-angle support diagonals use √2×H. Rounded holes use closed polygon paths with maximum chord error 0.01 mm. 0965/0966 share a developed five-panel pad; their physical cut face/assembly differ. Angle profiles 0971/0972 and 0973/0974 share flat panel sequences but differ in return orientation.
+
+Model-specific validators run before any preview or export. Every exposed expansion parameter is tested for a real construction change. The suite also checks three size ranges, contour intersections, duplicate/zero cut segments, finite bounds, part separation, independent SVG/XML parsing and real desktop/mobile downloads. These checks establish software behavior, not physical manufacturability.

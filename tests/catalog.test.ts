@@ -29,9 +29,22 @@ describe('source catalog', () => {
       expect(e.status).not.toBe('verified');
     }
   });
+  it('keeps the source evidence manifest aligned with the actual registry', () => {
+    const coverage = JSON.parse(readFileSync('docs/generator-coverage.json', 'utf8')) as {
+      code: string;
+      page: number;
+      fields: string[];
+    }[];
+    expect(coverage.map((entry) => entry.code).sort()).toEqual(Object.keys(generators).sort());
+    for (const entry of coverage) {
+      expect(entry.fields).toEqual(generators[entry.code].fields.map((field) => field.key));
+      if (entry.code !== '0982') expect(findEntry(entry.code)?.detailPage).toBe(entry.page);
+    }
+  });
   it('represents 0982–0999 once, with all codes resolving to the same generator', () => {
     expect(catalog).toHaveLength(325);
-    expect(availableCount).toBe(10);
+    expect(availableCount).toBe(Object.keys(generators).length);
+    expect(availableCount).toBeGreaterThanOrEqual(120);
     for (let code = 982; code <= 999; code++)
       expect(findEntry(String(code).padStart(4, '0'))?.generatorId).toBe('0982');
     expect(findEntry('0436.1')?.generatorId).toBe(null);

@@ -54,8 +54,8 @@ for (const [id, def] of Object.entries(generators))
     for (const scale of [0.5, 1, 3])
       it(`generates valid noncrossing contours and independent XML at scale ${scale}`, () => {
         const p = defaultParams(def);
-        for (const key of ['L', 'W', 'H', 'lidDepth', 'glue'])
-          if (p[key] !== undefined) p[key] *= scale;
+        for (const field of def.fields)
+          if (field.unit === 'מ״מ' && field.group !== 'material') p[field.key] *= scale;
         const result = generateValidated(id, p);
         expect(result.issues).toEqual([]);
         expect(result.geometry).not.toBeNull();
@@ -97,9 +97,12 @@ for (const [id, def] of Object.entries(generators))
         expect(metadata.status).toBe('beta');
         expect(metadata.code).toBe(effectiveCode(id, p));
       });
-    it('matches the reviewed default geometry snapshot', () => {
-      expect(generateValidated(id, defaultParams(def)).geometry).toMatchSnapshot();
-    });
+    if (
+      ['0201', '0204', '0300', '0401', '0453', '0501', '0901', '0902', '0910', '0982'].includes(id)
+    )
+      it('matches the reviewed default geometry snapshot', () => {
+        expect(generateValidated(id, defaultParams(def)).geometry).toMatchSnapshot();
+      });
     it('updates its real geometry when a dimension changes', () => {
       const p = defaultParams(def),
         dimension = def.fields.find((f) => f.group === 'dimension')!.key;

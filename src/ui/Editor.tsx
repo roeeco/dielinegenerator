@@ -66,7 +66,7 @@ export function Editor({
         <div className="editor-layout">
           <aside className="parameter-panel">
             <div className="panel-title">
-              <h2>מידות האריזה</h2>
+              <h2>מידות הדגם</h2>
               <button
                 className="icon-button"
                 aria-label="איפוס מידות"
@@ -76,7 +76,7 @@ export function Editor({
                 <RotateCcw size={16} />
               </button>
             </div>
-            <p className="panel-caption">מידות פנימיות · במילימטרים</p>
+            <p className="panel-caption">מידות הדגם · במילימטרים</p>
             <DimensionFields
               fields={definition.fields.filter((f) => f.group === 'dimension')}
               params={params}

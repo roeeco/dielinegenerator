@@ -1,4 +1,5 @@
 import data from './fefco-catalog.json';
+import { expandedSources } from '../geometry/expanded';
 import { generators } from '../geometry/registry';
 export type CatalogEntry = {
   code: string;
@@ -25,7 +26,19 @@ export const categories = [
   ['08', 'קמעונאות ומסחר מקוון'],
   ['09', 'מחיצות ורכיבי פנים'],
 ] as const;
-export const sourceCatalog = data as CatalogEntry[];
+export const sourceCatalog: CatalogEntry[] = (data as CatalogEntry[]).map((entry) => {
+  const definition = generators[entry.code];
+  if (!definition) return entry;
+  return {
+    ...entry,
+    generatorId: entry.code,
+    status: 'beta',
+    detailPage: expandedSources[entry.code] ?? entry.detailPage,
+    referenceImage: `catalog/references/${entry.code}.webp`,
+    requiredParams: definition.fields.map((f) => f.key),
+    specialVariables: definition.fields.filter((f) => f.group === 'special').map((f) => f.key),
+  };
+});
 export const partitionFamily: CatalogEntry = {
   code: '0982–0999',
   category: '09',

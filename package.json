@@ -1,6 +1,6 @@
 {
   "name": "fefco-dieline-editor",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,8 +11,9 @@
     "test:e2e": "playwright test",
     "check": "npm run build && npm test && npm run test:e2e",
     "catalog:qa": "python3 scripts/build-catalog-qa.py",
-    "format": "prettier --write src tests *.ts *.json index.html README.md docs/*.md",
-    "format:check": "prettier --check src tests *.ts *.json index.html README.md docs/*.md"
+    "format": "prettier --write src tests scripts/*.ts *.ts *.json index.html README.md docs/*.md",
+    "format:check": "prettier --check src tests scripts/*.ts *.ts *.json index.html README.md docs/*.md",
+    "generators:manifest": "vite-node scripts/generator-manifest.ts"
   },
   "dependencies": {
     "@fontsource/heebo": "^5.2.8",
