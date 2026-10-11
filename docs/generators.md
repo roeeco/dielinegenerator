@@ -42,16 +42,17 @@ The source diagrams are schematic. **None of these tests establishes physical fo
 
 ## Expansion coverage
 
-There are now 165 generator definitions, including the 0982–0999 family. The initial specifications above still apply. [generator-coverage.json](generator-coverage.json) records every implemented code, PDF page, exposed parameter and construction note. The catalog binds entries to the actual registry, so unsupported entries remain reference-only. 160 source entries are still unimplemented, mainly locking trays, glued constructions and retail packaging; this expansion does not complete all remaining generators.
+There are now 187 generator definitions, including the 0982–0999 family. The initial specifications above still apply. [generator-coverage.json](generator-coverage.json) records every implemented code, PDF page, exposed parameter and construction note. The catalog binds entries to the actual registry, so unsupported entries remain reference-only. 138 source entries are still unimplemented, mainly locking trays, glued constructions and retail packaging; this expansion does not complete all remaining generators.
 
 - 01: 11/11 codes. L/W are developed sheet dimensions except 0130, where L is one accordion panel. Early panel widths are independent; the final panel is the positive remaining width. 0100 exports a flat length cut from a roll.
-- 02: 25/36 codes. Flap depth, full or partial closures, notch/tongue outlines and tuck lips vary by code. 0226 has diagonal folds and continuous flaps rather than separated slots. Lock depth and tab width are explicit, with fit guards.
+- 02: 36/36 codes. Flap depth, full or partial closures, notch/tongue outlines and tuck lips vary by code. 0226 has diagonal folds and continuous flaps rather than separated slots. Lock depth and tab width are explicit, with fit guards.
 - 03: 13/25 codes. Cuts, inward/outward diagonal ear folds and uncut gussets remain distinct. Multiple sleeves and end covers are packed separately.
 - 04: 20/86 codes. Wrappers use their own panel sequences and side extensions; two-part wrappers retain independent nested components.
 - 05: 10/10 codes. Sleeve axes, nesting allowances, closing strap tabs and part counts follow the source constructions. 0507/0510 use similar flat components with a different assembly orientation.
 - 06: 11/11 codes. Rigid constructions keep a separate wrap and two separate end panels, except 0621 which uses two matching half-shells. End-panel flanges and wrap directions vary by model. Corner gussets in chamfered end panels include explicit diagonal folds as an engineering folding assumption. 0615 double returns are limited to prevent overlapping folds.
 - 07: 20/41 codes. Three automatic-bottom families have independent cut profiles and pre-glue fold placement. 0714 pairs a body with a nested, inverted lid. 0718 has double end walls; 0747/0748/0761 retain distinct diagonal wrapper folds. Pre-gluing and physical assembly remain unverified.
-- 09: 54/55 individual codes plus the count family. The stair display 0960 remains reference-only. Slots are complementary and material-dependent. 0934 places edge slots at a separate margin; 0935 has both v-height and H-height panels. 0939 computes developed cell windows and exposes cell count; assembled length is cells×W/2.
+- 08: 10/49 codes. Separate shelf parts and a central divider are retained for 0830/0831/0833; triangular forms 0850/0851/0852, editable regular polygon 0859 and display cards 0880/0881/0882 are implemented.
+- 09: 55/55 individual codes plus the count family. The stair display 0960 now exports three separate treads and three support cheeks. Slots are complementary and material-dependent. 0934 places edge slots at a separate margin; 0935 has both v-height and H-height panels. 0939 computes developed cell windows and exposes cell count; assembled length is cells×W/2.
 
 For profiles with unlabelled source cross sections, leg, return and brace distances are editable construction variables; they are not automatic assembled width/height dimensions. Right-angle support diagonals use √2×H. Rounded holes use closed polygon paths with maximum chord error 0.01 mm. 0965/0966 share a developed five-panel pad; their physical cut face/assembly differ. Angle profiles 0971/0972 and 0973/0974 share flat panel sequences but differ in return orientation.
 
@@ -62,3 +63,15 @@ Model-specific validators run before any preview or export. Every exposed expans
 The automatic-bottom models expose bottom bevel, notch/slot width, notch depth where used and tuck lip where used. Their placement follows the specific source family; they do not share a generic rectangular base. These are editable beta dimensions, and no automatic glue application, cut-depth setting or physical manufacturing certification is implied.
 
 0454/0455 have rolled returns on opposite axes; 0456 has returns on both axes. The extra crease pitch is t. Quarter-span corner-ear limits prevent the doubled ears from colliding. 0458 is an unjoined four-wall cross: tape/stitching must provide its corner joints.
+
+## Handled cartons and retail displays
+
+All 36 category-02 codes now have generators. The latest shell engine retains different top and bottom profiles, the W–L–W–L sequence of 0222, joined bottom panels of 0225, the long slotted bottom of 0207, and the diagonal locking cuts of 0218/0232. Hand openings and Euro slots are closed cut contours. 0240 and 0241 each have two matching hanging openings; 0242 retains a narrow, twice-folded stem and a separate wide label area in the same blank. Relevant flap, lip, lock, hole and label dimensions are editable and guarded against panel collisions.
+
+0880 is a double-height folded card with tabs at both ends; 0881 is a flat card with rounded upper corners and two open lower slots; 0882 is a three-panel header wrap with five lower tabs. Flat cards expose their panel dimensions rather than irrelevant box dimensions.
+
+0830/0833 have a back with returned side walls and separate shelves with side ears and a back locking tab. 0831 retains an additional double-thickness centre divider and complementary shelf slots. Shelf count is an integer; shelf height spacing must accommodate the returns. 0833 has a full-depth W return and an extra material crease. These are beta construction profiles with no tested load rating.
+
+0850 implements the triangular variant shown in the source, including its attached triangular top and short end flaps. It does not claim all possible polygons permitted by the source. 0851 retains the diagonal V folds and a separately packed four-panel base. 0852 derives the inclined face from √(H²+W²), with triangular end flaps. 0859 implements a regular polygon sleeve and separate matching bottom; editable N controls both the wall panel count and the base vertices, with thickness and fit allowances.
+
+0960 has three stepped treads and three matching staircase supports, packed separately with editable spacing. Width, step depth, step rise, return depth and slot clearance change the actual geometry. The source sketches and these software checks do not establish fold fit or display load capacity; physical validation remains pending.

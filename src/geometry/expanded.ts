@@ -1,4 +1,5 @@
 import { nextGenerators, nextSources } from './next';
+import { continuationGenerators, continuationSources } from './continuation';
 import type { GeneratorDefinition, ParameterField, Params, ValidationIssue } from './types';
 import { variableGrid } from './families/grid';
 import { carton } from './families/carton';
@@ -1236,3 +1237,6 @@ add(
 
 Object.assign(expandedGenerators, nextGenerators);
 Object.assign(expandedSources, nextSources);
+
+Object.assign(expandedGenerators, continuationGenerators);
+Object.assign(expandedSources, continuationSources);

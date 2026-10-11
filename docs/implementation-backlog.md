@@ -4,7 +4,7 @@ Source analysis: _Structural Package Designs_, Haresh Pathak, The Pepin Press. T
 
 The inventory contains 319 design pages. 17 pages link to existing FEFCO construction families. 48 pages are grouped into 27 new planned families. The other 254 pages form 198 comparison tasks, held before implementation because their overlap is uncertain.
 
-The existing catalog still has 165 implementations and 160 FEFCO entries awaiting implementation. Adding this backlog does not make any new generator exportable.
+The existing catalog still has 187 implementations and 138 FEFCO entries awaiting implementation. Adding this backlog does not make any new generator exportable.
 
 [implementation-backlog.json](implementation-backlog.json) is the canonical list: it includes all 324 FEFCO codes, the 0982–0999 partition family, new families, comparison tasks, editable parameter plans and one source record per design page. [Source captions](sources/structural-package-designs-captions.txt) preserve the page inventory.
 
