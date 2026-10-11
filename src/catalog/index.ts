@@ -1,3 +1,4 @@
+import { retailNames } from '../geometry/retail/names';
 import { bookSources } from '../geometry/nonrectangular';
 import data from './fefco-catalog.json';
 import { expandedSources } from '../geometry/expanded';
@@ -35,6 +36,7 @@ export const sourceCatalog: CatalogEntry[] = (data as CatalogEntry[]).map((entry
   return {
     ...entry,
     generatorId: entry.code,
+    nameHe: retailNames[entry.code] ?? entry.nameHe,
     status: 'beta',
     detailPage: expandedSources[entry.code] ?? entry.detailPage,
     referenceImage: `catalog/references/${entry.code}.webp`,

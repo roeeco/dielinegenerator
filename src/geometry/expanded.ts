@@ -1,3 +1,4 @@
+import { retailGenerators, retailSources } from './retail';
 import { nonrectangularGenerators, nonrectangularSources } from './nonrectangular';
 import { nextGenerators, nextSources } from './next';
 import { continuationGenerators, continuationSources } from './continuation';
@@ -1245,3 +1246,6 @@ Object.assign(expandedSources, continuationSources);
 for (const code of Object.keys(nonrectangularSources))
   expandedGenerators[code] = nonrectangularGenerators[code];
 Object.assign(expandedSources, nonrectangularSources);
+
+Object.assign(expandedGenerators, retailGenerators);
+Object.assign(expandedSources, retailSources);

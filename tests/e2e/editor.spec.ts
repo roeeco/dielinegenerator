@@ -152,3 +152,43 @@ test('book pillow closure exposes relevant controls and exports a distinct tuck 
   expect(svg).toContain('&quot;closureVariant&quot;:1');
   expect(svg).toContain('&quot;tabWidth&quot;:35');
 });
+
+test('retail product grids update and block colliding apertures', async ({ page }) => {
+  await page.goto('/#/model/0847');
+  await page.getByLabel('מספר עמודות').fill('4');
+  await page.getByLabel('מספר מדפים').fill('4');
+  await expect(page.getByRole('button', { name: 'הורדת SVG' })).toBeEnabled();
+  await page.getByLabel('קוטר פתח מוצר').fill('100');
+  await expect(page.getByRole('button', { name: 'הורדת SVG' })).toBeDisabled();
+  await page.getByLabel('קוטר פתח מוצר').fill('12');
+  const pending = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'הורדת SVG' }).click();
+  const downloaded = await pending;
+  const svg = await readFile((await downloaded.path())!, 'utf8');
+  expect(svg).toContain('&quot;columns&quot;:4');
+  expect(svg).toContain('data-part="support-2"');
+  expect(svg).toContain('data-part="shelf-4"');
+});
+
+test('retail staircase counts and shipping opening strips export editable constructions', async ({
+  page,
+}) => {
+  await page.goto('/#/model/0870');
+  await page.getByLabel('מספר מדרגות').fill('4');
+  await page.getByLabel('גובה מדרגה').fill('35');
+  await expect(page.getByRole('button', { name: 'הורדת SVG' })).toBeEnabled();
+  const stairPending = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'הורדת SVG' }).click();
+  const stairs = await stairPending;
+  expect(await readFile((await stairs.path())!, 'utf8')).toContain('&quot;steps&quot;:4');
+  await page.goto('/#/model/0886');
+  await page.getByLabel('רוחב פס הדבקה').fill('14');
+  await page.getByLabel('רוחב רצועת פתיחה').fill('10');
+  const pending = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'הורדת SVG' }).click();
+  const shipping = await pending;
+  const svg = await readFile((await shipping.path())!, 'utf8');
+  expect(svg).toContain('id="TEAR"');
+  expect(svg).toContain('&quot;sealWidth&quot;:14');
+  expect(svg).toContain('&quot;tearWidth&quot;:10');
+});

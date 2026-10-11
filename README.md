@@ -24,7 +24,7 @@ Browser tests use `/usr/bin/chromium` when present. Otherwise install the Playwr
 
 - All **324 illustrated source entries**, across all nine categories, with extracted WebP thumbnails, code/name search, category filters, and a filter for models with generators.
 - The **0982–0999** interior-fitment range appears as one additional parametric family, not 18 duplicate images. Its implementation is an explicitly identified interlocking grid variant; the codes specify panel count, not a unique shape.
-- **191 editable generators**: 188 individual FEFCO source codes, the partition family, and two book families (three source designs). All 11 sheet/roll entries and all 10 sleeve entries and all 11 rigid-box entries are implemented; all 55 individual insert entries are implemented. The remaining **136 source codes** are reference-only. The full remaining-generator request is not yet complete; see [coverage](docs/generator-coverage.json).
+- **229 editable generators**: 226 individual FEFCO source codes, the partition family, and two book families (three source designs). All 11 sheet/roll entries and all 10 sleeve entries and all 11 rigid-box entries are implemented; all 55 individual insert entries are implemented. The remaining **98 source codes** are reference-only. The full remaining-generator request is not yet complete; see [coverage](docs/generator-coverage.json).
 - The additional _Structural Package Designs_ reference is indexed in the [implementation backlog](docs/implementation-backlog.md): 319 design pages, 27 new planned families, existing-family aliases, and gated comparison tasks. All planned generators require editable dimensions. Ambiguous overlaps must be resolved before implementing another generator.
 - Model-specific dimensions and material controls, immediate SVG updates, zoom/fit/pan, field-level validation, blank dimensions, multiple parts, and source drawing references.
 - Mechanical SVG with physical `mm` dimensions, matching `viewBox`, continuous fold paths, stable `CUT`/`CREASE`/`PARTIAL_CUT` layer IDs where applicable, metadata, no raster artwork or visible text, and filenames including the code and dimensions.
@@ -32,7 +32,7 @@ Browser tests use `/usr/bin/chromium` when present. Otherwise install the Playwr
 
 Every implemented generator is **beta**. Automated geometry checks are not a physical assembly test. No model is claimed to be production verified. Material allowances are documented starting assumptions, and laser kerf compensation is not applied automatically. Check the actual material, glue joints, lid clearance, and the laser software's colour-to-operation mapping before use.
 
-Stages A and the software portion of B in the supplied plan are implemented. Stage B's physical cutting/assembly acceptance, the remaining 136 model implementations in stage C, and optional stage D features (project JSON, dimensional export, machine profiles, 3D) remain future work. See [generator specifications](docs/generators.md) and [production acceptance](docs/production-validation.md).
+Stages A and the software portion of B in the supplied plan are implemented. Stage B's physical cutting/assembly acceptance, the remaining 98 model implementations in stage C, and optional stage D features (project JSON, dimensional export, machine profiles, 3D) remain future work. See [generator specifications](docs/generators.md) and [production acceptance](docs/production-validation.md).
 
 ## Catalog extraction and QA
 
@@ -75,3 +75,5 @@ The source PDF remains outside the repository. Reference crops support compariso
 The latest expansion adds source-specific wrappers, rolled-wall trays, all rigid-box models (0601–0621), and automatic-bottom constructions 0700–0714, 0718/0719, 0747/0748 and 0761. Automatic bases include their diagonal pre-glue folds and alignment slots. Rigid boxes export each end panel separately. 0229/0229.1 use a user-selected return depth capped by H, matching the source's MAX H note.
 
 New non-rectangular designs: pillow pack with glued/tuck closures, hexagonal ring box, FEFCO 0459 octagonal tray and FEFCO 0858 octagonal container. See [source comparisons and controls](docs/nonrectangular-generators.md).
+
+All **49 retail/e-commerce codes (08)** now have editable beta generators. The final 38 additions include display trays, shelf stands, product grids, polygonal/twisted containers, stairs and shipping closures. See [category 08 specifications](docs/retail-generators.md).

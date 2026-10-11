@@ -49,9 +49,9 @@
     "newPlannedFamilies": 25,
     "comparisonRequiredFamilies": 198,
     "existingCanonicalGenerators": 325,
-    "implementedGenerators": 191,
+    "implementedGenerators": 229,
     "implementedBookGenerators": 2,
-    "remainingFefcoGenerators": 136
+    "remainingFefcoGenerators": 98
   },
   "generators": [
     {
@@ -3735,235 +3735,183 @@
       "id": "fefco:0801",
       "code": "0801",
       "name": "FEFCO 0801",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 106
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "glue", "lip", "tabWidth", "t", "clearance"]
     },
     {
       "id": "fefco:0802",
       "code": "0802",
       "name": "FEFCO 0802",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 106
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "tabWidth", "lockDepth", "t", "clearance"]
     },
     {
       "id": "fefco:0803",
       "code": "0803",
       "name": "FEFCO 0803",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 106
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "tabWidth", "lockDepth", "t", "clearance"]
     },
     {
       "id": "fefco:0804",
       "code": "0804",
       "name": "FEFCO 0804",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 107
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "tabWidth", "lockDepth", "t", "clearance"]
     },
     {
       "id": "fefco:0808",
       "code": "0808",
       "name": "FEFCO 0808",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 107
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "tabWidth", "lockDepth", "cornerEar", "t", "clearance"]
     },
     {
       "id": "fefco:0809",
       "code": "0809",
       "name": "FEFCO 0809",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 107
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "tabWidth", "lockDepth", "cornerEar", "t", "clearance"]
     },
     {
       "id": "fefco:0815",
       "code": "0815",
       "name": "FEFCO 0815",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 108
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "tabWidth", "lockDepth", "t", "clearance"]
     },
     {
       "id": "fefco:0816",
       "code": "0816",
       "name": "FEFCO 0816",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 108
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "tabWidth", "lockDepth", "cornerEar", "t", "clearance"]
     },
     {
       "id": "fefco:0817",
       "code": "0817",
       "name": "FEFCO 0817",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 108
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "tabWidth", "lockDepth", "t", "clearance"]
     },
     {
       "id": "fefco:0818",
       "code": "0818",
       "name": "FEFCO 0818",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 109
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "glue", "lip", "tabWidth", "t", "clearance"]
     },
     {
       "id": "fefco:0819",
       "code": "0819",
       "name": "FEFCO 0819",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 109
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "glue", "lip", "tabWidth", "t", "clearance"]
     },
     {
       "id": "fefco:0825",
       "code": "0825",
       "name": "FEFCO 0825",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 109
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "glue", "lip", "tabWidth", "t", "clearance"]
     },
     {
       "id": "fefco:0826",
       "code": "0826",
       "name": "FEFCO 0826",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 110
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "lip", "t", "clearance"]
     },
     {
       "id": "fefco:0830",
@@ -3997,19 +3945,15 @@
       "id": "fefco:0832",
       "code": "0832",
       "name": "FEFCO 0832",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 111
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "tabWidth", "shelfCount", "t", "clearance", "spacing"]
     },
     {
       "id": "fefco:0833",
@@ -4029,181 +3973,165 @@
       "id": "fefco:0834",
       "code": "0834",
       "name": "FEFCO 0834",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 111
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "tabWidth", "shelfCount", "t", "clearance", "spacing"]
     },
     {
       "id": "fefco:0840",
       "code": "0840",
       "name": "FEFCO 0840",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 112
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "tabWidth", "shelfCount", "t", "clearance", "spacing"]
     },
     {
       "id": "fefco:0841",
       "code": "0841",
       "name": "FEFCO 0841",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 112
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "glue", "lip", "tabWidth", "t", "clearance"]
     },
     {
       "id": "fefco:0842",
       "code": "0842",
       "name": "FEFCO 0842",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 112
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "glue", "tabWidth", "shelfCount", "t", "clearance"]
     },
     {
       "id": "fefco:0843",
       "code": "0843",
       "name": "FEFCO 0843",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 113
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "glue", "tabWidth", "shelfCount", "t", "clearance"]
     },
     {
       "id": "fefco:0845",
       "code": "0845",
       "name": "FEFCO 0845",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 113
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "shelfCount", "glue", "t", "clearance", "spacing"]
     },
     {
       "id": "fefco:0846",
       "code": "0846",
       "name": "FEFCO 0846",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 113
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "shelfCount", "glue", "t", "clearance", "spacing"]
     },
     {
       "id": "fefco:0847",
       "code": "0847",
       "name": "FEFCO 0847",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 114
         }
       ],
       "editableDimensions": true,
       "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
+        "L",
+        "W",
+        "H",
+        "v",
+        "shelfCount",
+        "columns",
+        "holeDiameter",
+        "glue",
+        "t",
+        "clearance",
+        "spacing"
       ]
     },
     {
       "id": "fefco:0848",
       "code": "0848",
       "name": "FEFCO 0848",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 114
         }
       ],
       "editableDimensions": true,
       "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
+        "L",
+        "W",
+        "H",
+        "v",
+        "columns",
+        "rows",
+        "lip",
+        "tabWidth",
+        "t",
+        "clearance",
+        "spacing"
       ]
     },
     {
       "id": "fefco:0849",
       "code": "0849",
       "name": "FEFCO 0849",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 104
+          "pdfPage": 114
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "tabWidth", "shelfCount", "t", "clearance", "spacing"]
     },
     {
       "id": "fefco:0850",
@@ -4251,36 +4179,53 @@
       "id": "fefco:0853",
       "code": "0853",
       "name": "FEFCO 0853",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 116
         }
       ],
       "editableDimensions": true,
       "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
+        "L",
+        "W",
+        "H",
+        "v",
+        "columns",
+        "rows",
+        "holeDiameter",
+        "glue",
+        "lip",
+        "t",
+        "clearance",
+        "spacing"
       ]
     },
     {
       "id": "fefco:0854",
       "code": "0854",
       "name": "FEFCO 0854",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 116
         }
       ],
       "editableDimensions": true,
       "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
+        "L",
+        "W",
+        "H",
+        "v",
+        "columns",
+        "rows",
+        "glue",
+        "lip",
+        "t",
+        "clearance",
+        "spacing"
       ]
     },
     {
@@ -4315,163 +4260,158 @@
       "id": "fefco:0860",
       "code": "0860",
       "name": "FEFCO 0860",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 117
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "H", "v", "glue", "lip", "holeDiameter", "t", "clearance", "spacing"]
     },
     {
       "id": "fefco:0861",
       "code": "0861",
       "name": "FEFCO 0861",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 117
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "H", "lip", "t"]
     },
     {
       "id": "fefco:0865",
       "code": "0865",
       "name": "FEFCO 0865",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 118
         }
       ],
       "editableDimensions": true,
       "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
+        "L",
+        "W",
+        "H",
+        "openingHeight",
+        "footWidth",
+        "footDepth",
+        "glue",
+        "t",
+        "clearance"
       ]
     },
     {
       "id": "fefco:0866",
       "code": "0866",
       "name": "FEFCO 0866",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 118
         }
       ],
       "editableDimensions": true,
       "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
+        "L",
+        "W",
+        "H",
+        "openingHeight",
+        "footWidth",
+        "footDepth",
+        "glue",
+        "t",
+        "clearance"
       ]
     },
     {
       "id": "fefco:0870",
       "code": "0870",
       "name": "FEFCO 0870",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 118
         }
       ],
       "editableDimensions": true,
       "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
+        "L",
+        "W",
+        "H",
+        "stepRise",
+        "steps",
+        "glue",
+        "lip",
+        "tabWidth",
+        "t",
+        "clearance"
       ]
     },
     {
       "id": "fefco:0871",
       "code": "0871",
       "name": "FEFCO 0871",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 119
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "glue", "lip", "tabWidth", "t", "clearance"]
     },
     {
       "id": "fefco:0872",
       "code": "0872",
       "name": "FEFCO 0872",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 119
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "lip", "t", "clearance", "spacing"]
     },
     {
       "id": "fefco:0873",
       "code": "0873",
       "name": "FEFCO 0873",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 119
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "lip", "tabWidth", "t", "clearance"]
     },
     {
       "id": "fefco:0874",
       "code": "0874",
       "name": "FEFCO 0874",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 120
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "v", "lip", "tabWidth", "t", "clearance"]
     },
     {
       "id": "fefco:0880",
@@ -4519,55 +4459,64 @@
       "id": "fefco:0885",
       "code": "0885",
       "name": "FEFCO 0885",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 121
         }
       ],
       "editableDimensions": true,
       "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
+        "L",
+        "W",
+        "H",
+        "lip",
+        "tabWidth",
+        "sealWidth",
+        "tearWidth",
+        "t",
+        "clearance"
       ]
     },
     {
       "id": "fefco:0886",
       "code": "0886",
       "name": "FEFCO 0886",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 121
         }
       ],
       "editableDimensions": true,
       "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
+        "L",
+        "W",
+        "H",
+        "glue",
+        "tabWidth",
+        "bottomBevel",
+        "sealWidth",
+        "tearWidth",
+        "t",
+        "clearance"
       ]
     },
     {
       "id": "fefco:0887",
       "code": "0887",
       "name": "FEFCO 0887",
-      "status": "planned",
+      "status": "implemented-beta",
       "sources": [
         {
           "document": "fefco-code-2022",
-          "pdfPage": 105
+          "pdfPage": 122
         }
       ],
       "editableDimensions": true,
-      "parameterPlan": [
-        "L/W/H where relevant",
-        "material thickness",
-        "model-specific closure and fit controls"
-      ]
+      "parameterPlan": ["L", "W", "H", "glue", "sealWidth", "tearWidth", "t", "clearance"]
     },
     {
       "id": "fefco:0900",
