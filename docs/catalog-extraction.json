@@ -1,0 +1,39 @@
+{
+  "edition": "FEFCO 12th edition (2022)",
+  "pdfSha256": "cefdced5970b4234848547f2f7558bece4097269f3f2301c13fa22dd5305f4b0",
+  "counts": {
+    "01": 11,
+    "02": 36,
+    "03": 25,
+    "04": 86,
+    "05": 10,
+    "06": 11,
+    "07": 41,
+    "08": 49,
+    "09": 55
+  },
+  "total": 324,
+  "methods": {
+    "cell-render": 15,
+    "matched-image-cell-render": 309
+  },
+  "fallbackCodes": [
+    "0100",
+    "0206",
+    "0225",
+    "0321",
+    "0360",
+    "0427.1",
+    "0713",
+    "0716",
+    "0725",
+    "0726",
+    "0727",
+    "0728",
+    "0849",
+    "0854",
+    "0870"
+  ],
+  "manualQa": "Contact sheets provided; visual review is required before public publication.",
+  "rights": "FEFCO © 2022, all rights reserved. Source-derived assets require authorization for public redistribution."
+}
